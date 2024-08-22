@@ -1,4 +1,4 @@
-5 REMark date_4
+5 REMark date_2
 7 CLS
 10 d$=DATE$
 20 PRINT d$

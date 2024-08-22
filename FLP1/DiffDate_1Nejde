@@ -1,5 +1,7 @@
 5 REMark DiffDate_1Nejde
+7 CLS
 100 date1=DATE(2032,3,30,10,0,0)
+101 REMark ^ az ve verzi SMS v2.57+
 110 date2=DATE(2000,3,30,10,0,0)
 120 PRINT DAYS_DIFF(date2,date1)
 140 DEFine FuNction DAYS_DIFF(dy1,dy2)
