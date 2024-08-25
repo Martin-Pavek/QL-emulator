@@ -2,7 +2,7 @@
 7 CLS : CLS #0
 95 REMark -------------------------
 100 nacti_soubor$="flp1_Sort_2A_MixArray"
-105 sorted_file_write$="flp1_Sort_2A_SortedArray"
+105 sorted_file_write$="flp1_Sort_2B_SortedArray"
 107 REMark ------------------------
 110 PRINT "nacitam soubor:";nacti_soubor$
 112 PAUSE 200
