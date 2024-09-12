@@ -1,0 +1,85 @@
+5 REMark karty_1 ( strana 102 )
+7 CLS
+100 DIM card(52),sort(13),tok$(4,2)
+110 FOR k= 1 TO 4 : READ tok$(k)
+120 FOR k = 1 TO 52 : LET card(k) = k
+130 shuffle
+140 split
+150 OPEN #6,scr_440x220a35x15
+160 layout
+170 printem
+180 CLOSE #6
+190 DEFine PROCedure shuffle
+200 FOR c = 52 TO 3 STEP -1
+210 LET ran = RND(1 TO c-1)
+220 LET temp = card(c)
+230 LET card(c) = card(ran)
+240 LET card(ran) = temp
+250 END FOR c
+260 DEFine PROCedure split
+280 FOR h = 1 TO 4
+290 FOR c = 1 TO 13
+300 LET sart(c) = card((h-1)*13+c)
+310 END FOR c
+320 sortem
+330 FOR c =1 TO 13
+340 LET card((h-1)*13+c) = sort(c)
+350 END FOR c
+360 END FOR h
+370 END DEFine 
+380 DEFine PROCedure sortem
+390 FOR item = 2 TO 13
+400 LET dart = item
+410 LET comp = sort(dart)
+420 LET sort(0) = comp
+430 REPeat compare
+440 IF comp >= sort(dart-1) : EXIT compare
+450 LET sort(dart) = sort(dart-1)
+460 LET dart = dart -1
+470 END REPeat compare
+480 LET sort(dart) = comp
+490 END FOR item
+500 END DEFine 
+510 DEFine PROCedure layout
+520 PAPER #6,4 : CLS #6
+530 BORDER #6,10,0
+540 BLOCK #6,100,60,150,60,2,4
+550 END DEFine 
+560 DEFine PROCedure printem
+570 LET inc = 12 : INK #6,7
+580 LET p = 0
+590 FOR seat = 1 TO 4
+600 READ ac,dn
+610 FOR row = 1 TO 4
+620 getline
+630 CURSOR #6,ac,dn
+640 PRINT #6,lin$
+650 LET dn = dn + inc
+660 END FOR row
+670 END FOR seat
+680 END DEFine 
+690 DEFine PROCedure getline
+700 IF row MOD 2 = 0 THEN STRIP #6,0
+710 IF row MOD 2 = 1 THEN STRIP #6,2
+720 LET lin$ = tok$(row)
+730 LET max = row*13
+740 REPeat one_suit
+750 LET p = p +1
+760 LET n = card(p)
+770 IF n>max THEN p = p -1 : EXIT one_suit
+780 LET n = n MOD 13
+790 IF n = 0 THEN n =13
+800 IF n = 1 : LET ch$ = "A"
+810 IF n >= 2 AND n <= 9 : LET ch$ = n
+820 IF n = 10 : LET ch$ = "T"
+830 IF n = 11 : LET ch$ = "J"
+840 IF n = 12 : LET ch$ = "Q"
+850 IF n = 13 : LET ch$ = "K"
+860 LET lin$ = lin$ & " " & ch$
+870  IF p = 52 : EXIT one_suit
+880 IF card(p)>card(p+1) : EXIT one_suit
+890 END REPeat one_suit
+900 END DEFine 
+910 DATA "H:","C:","D:","S:"
+920 DATA 150,10,260,60,150,130,30,60
+999 PRINT "zde"

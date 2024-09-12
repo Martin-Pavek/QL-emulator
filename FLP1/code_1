@@ -1,0 +1,5 @@
+5 REMark code_1
+7 CLS
+10 PRINT CODE("A")
+20 PRINT CODE("SuperBASIC")
+30 PRINT CODE("S")
