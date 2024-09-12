@@ -34,7 +34,7 @@
 255 OPEN_NEW #7, sorted_file_write$
 260 PRINT "press any key" : PAUSE
 270 FOR cc = 1 TO 243
-280 PRINT p$(cc)
+280 PRINT cc;" ";p$(cc)
 282 PRINT #7, cc;" ";p$(cc)
 290 NEXT cc
 300 CLOSE #7

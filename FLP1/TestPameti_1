@@ -1,0 +1,41 @@
+5 REMark TestPameti_1
+7 CLS
+20 PRINT "zkouska pameti"
+25 RESTORE 350
+30 READ x$
+40 PRINT
+50 PRINT "zadej pocet pismen ?"
+60 INPUT n
+70 IF n=0 THEN GO TO 360
+80 y$=""
+90 FOR k=1 TO n
+100 LET a=RND(1 TO 25)
+109 REMark LET y$=y$+mid$(x$,a,1)
+110 y$=y$ & x$(a TO a)
+120 NEXT k
+130 PRINT
+140 PRINT "      ",y$
+150 FOR k=1 TO 500*n
+160 NEXT k
+170 FOR i=1 TO 25
+180 PRINT
+190 NEXT i
+199 REMark PRINT "zopakuj pismena, ktera jsi videl - (";
+200 PRINT "zopakuj " & n & " pismena, ktera jsi vydel"
+210 REMark PRINT n;")"
+220 INPUT z$
+230 IF LEN (z$) > n THEN GO TO 200
+240 LET c=0
+250 FOR k=1 TO n
+260 FOR l=1 TO LEN(z$)
+269 REMark IF mid$(z$,l,1)=mid$(y$,k,1) THEN GO TO 300
+270 IF z$(l TO l) = y$(k TO k) THEN GO TO 300
+280 NEXT l
+290 GO TO 310
+300 LET c=c+1
+310 NEXT k
+320 PRINT "      ",y$
+329 REMark PRINT c;"spravne,tj";INT(100*c/n);"x"
+330 PRINT c;" spravne, tj ";INT(100*c/n);"%"
+340 GO TO 40
+350 DATA "abcdefghijklmnopqrstuvwxyz"

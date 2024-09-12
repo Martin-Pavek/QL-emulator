@@ -1,0 +1,14 @@
+5 REMark prime_1
+7 CLS
+10 PRINT "prvocisla v intervalu a-b"
+40 INPUT "a=";a
+60 INPUT "b=";b
+80 FOR x=a TO b
+90 IF x=2*INT(x/2) THEN GO TO 160
+100 LET n=1
+110 LET n=n+2
+120 IF n*n>x THEN GO TO 150
+130 IF x=n*INT(x/n) THEN GO TO 160
+140 GO TO 110
+150 PRINT x,
+160 END FOR x

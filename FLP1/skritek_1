@@ -1,0 +1,45 @@
+5 REMark skritek_1
+7 CLS
+40 DIM a(9,9)
+50 FOR k=1 TO 9
+60 FOR l=1 TO 9
+70 LET a(k,l)=1
+80 END FOR l
+90 END FOR k
+95 LET v=0
+100 LET p=RND(1 TO 9)
+110 LET r=RND(1 TO 9)
+120 FOR k=1 TO 9
+130 PRINT 9-k;
+140 FOR l=1 TO 9
+150 IF a(k,l)=0 THEN GO TO 170
+160 REMark PRINT tab (2*l+4);",";
+170 END FOR l
+180 REMark 
+190 END FOR k
+200 PRINT "  1 2 3 4 5 6 7 8 9"
+210 PRINT
+220 REMark 
+222 INPUT "zadej radek ";x
+223 INPUT "zadej sloupec ";y
+224 INPUT "zadej delku ";d
+230 LET x=9-x
+240 z=0
+250 IF p=x AND r=y AND d=0 THEN GO TO 380
+260 IF (x-p) > d OR (y-r) > d THEN GO TO 280
+270 LET z=1
+280 FOR k=1 TO 9
+290 FOR l=0 TO 9
+300 IF z=1 THEN GO TO 330
+310 IF (x-k) > d OR (y-l) > d THEN GO TO 350
+320 GO TO 340
+330 IF (x-k) <= d AND (y-l) <= 0 THEN GO TO 350
+340 LET a(k,l)=0
+350 END FOR l
+360 END FOR k
+365 LET v=v+1
+370 GO TO 120
+380 PRINT "hotovo, skritek nalezen"
+385 PRINT "pocet kroku ";v
+390 PRINT
+400 GO TO 50

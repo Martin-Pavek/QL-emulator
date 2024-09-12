@@ -48,5 +48,5 @@
 336 PRINT "pro nacteni a setrideni,"
 337 PRINT "pole ";filename$;" slouzi program Sort_2B"
 338 PRINT "new <Enter>"
-340 PRINT "lrun flp1_Sort2B <Enter>"
+340 PRINT "lrun flp1_Sort_2B <Enter>"
 350 REMark 

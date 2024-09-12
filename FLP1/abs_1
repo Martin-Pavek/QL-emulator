@@ -1,0 +1,3 @@
+5 REMark abs_1
+10 CLS
+20 PRINT ABS(.5)
